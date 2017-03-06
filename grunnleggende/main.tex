@@ -2,13 +2,25 @@
 
 \documentclass[a4paper]{article}
 
-% Denne linjen vil gjøre livet ditt enklere. Den gjør at du kan skrive æøå eller é om du har en sånn teit bokstav i navnet ditt.
+% Denne linjen vil gjøre livet ditt enklere. Den gjør
+% at du kan skrive æøå eller é om du har en sånn teit
+% bokstav i navnet ditt.
 \usepackage[utf8]{inputenc}
 
+% Denne brukes bare for å få lorem ipsum (tulletekst)
+% kjapt opp. På denne måten kan vi se strukturen bedre
 \usepackage{blindtext}
+
+% Du må ha denne pakken for å legge inn bilder osv.
 \usepackage{graphicx}
+
+% De to neste pakkene tregs dersom du skal ha subfigurer.
 \usepackage{caption}
 \usepackage{subcaption}
+
+% Denne pakken inneholder mange nyttige måter å skrive
+% ligninger på. I tillegg lar den deg droppe equation-nummer
+% og sånn.
 \usepackage{amsmath}
 
 \begin{document}
@@ -17,10 +29,12 @@
 \author{Andreas Drivenes \& Martin Hallén}
 \date{\today}
 
-% Uten denne linjen vil faktisk ingenting av tittelen vises. Denne kommandoen
-% tar informasjonen ovenifra og lager en fin liten tittell for oss.
+% Uten denne linjen vil faktisk ingenting av tittelen vises.
+% Denne kommandoen tar informasjonen ovenifra og lager en
+% fin liten tittel for oss.
 \maketitle
 
+% Sammendrag
 \begin{abstract}
     \blindtext
 \end{abstract}
@@ -31,6 +45,7 @@
 
 \subsection{Lister}
 
+% Itemize er punktliste. Enumerate er nummerert liste.
 \begin{itemize}
     \item Første
     \item Andre
@@ -53,6 +68,16 @@
 
 \subsection{Figurer}
 
+% h sier at figuren skal vises "here", altså der det
+% spesifiseres i dokumentet. Du kan velge t (top),
+% b (bottom) og p (new page). I tillegg kan du slenge på
+% utropstegn for å overskrive det kompilatoren mener er
+% beste plassering
+
+% centering vil sette figuren i midten horisontalt.
+% caption er det som vil stå under bildet
+% label er en unik id som du kan referere til senere
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{kuleramme}
@@ -65,20 +90,20 @@
     \centering
     \begin{subfigure}[b]{0.3\linewidth}
         \includegraphics[width=\textwidth]{kuleramme}
-        \caption{A gull}
-        \label{fig:gull}
+        \caption{Ramme 1}
+        \label{fig:ramme1}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\linewidth}
         \includegraphics[width=\textwidth]{kuleramme}
-        \caption{A tiger}
-        \label{fig:tiger}
+        \caption{Ramme 2}
+        \label{fig:ramme2}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\linewidth}
         \includegraphics[width=\textwidth]{kuleramme}
-        \caption{A mouse}
-        \label{fig:mouse}
+        \caption{Ramme 3}
+        \label{fig:ramme3}
     \end{subfigure}
     \caption{Tre helt like kulerammer}\label{fig:animals}
 \end{figure}
@@ -86,6 +111,11 @@
 \pagebreak
 
 \subsection{Tabeller}
+
+% \\ sier at det er en ny linje i tabellen
+% \hline betyr horisontal linje
+% l | c | r betyr at det skal være venstrestilt, midtstilt
+% og høyrestilt. Alle sammen med en vertikal strek imellom
 
 \begin{table}[h]
     \centering
@@ -135,11 +165,17 @@ u(x) =
     \end{cases}    
 \end{equation*}
 
+Du kan også ha med tekst i ligningen din. Det ser ofte litt dumt ut om du ikke bruker \verb:\text{}:
+
+\begin{equation}
+    \text{kuleramme} = 100~\text{kuler} + 1~\text{ramme}
+\end{equation}
+
 \subsection{Referanser}
 
 \subsubsection{Referanser i eget dokument}
 
-Du kan se en ganske kul utregning i ligning \ref{eq:combinatorics}, samt masse fin info i tabell \ref{table:referencespeed}.
+Du kan se en ganske kul utregning i ligning \ref{eq:combinatorics}, samt masse fin info i tabell \ref{table:referencespeed}. Du kan også spesifisere underfigurer, f.eks. figur \ref{fig:ramme2}.
 
 \subsubsection{Referanser til litteratur}
 
